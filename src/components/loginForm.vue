@@ -1,8 +1,26 @@
 <script setup>
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
+import {useToast} from "vue-toastification";
+
+const toast = useToast();
+
+
 
 const email = ref('');
 const password = ref('');
+
+//checking if password is not "qwerty" on form submit
+
+const onsubmit = () => {
+    if(password.value != "qwerty"){
+        toast.error('Wrong password!',{
+            position: "top-right",
+            timeout: 2000,
+            closeOnClick: true,
+        });
+    }
+}
+
 
 </script>
 
@@ -29,7 +47,7 @@ const password = ref('');
             </div>
             <a href="#" class="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Forgot password?</a>
         </div>
-        <button type="submit" class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign in</button>
+        <button type="button" @click="onsubmit" class="w-full text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign in</button>
         <p class="text-sm font-light text-gray-500 dark:text-gray-400">
             Don’t have an account yet? <a href="#" class="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign up</a>
         </p>
