@@ -1,5 +1,5 @@
 <script setup>
-import {ref,onBeforeMount} from 'vue'
+import {ref,onBeforeMount,onMounted} from 'vue'
 
 
 const products = ref([]);
@@ -20,7 +20,8 @@ async function fetchData(){
 }
 
 
-onBeforeMount(fetchData);
+onBeforeMount(fetchData)
+
 
 </script>
 
@@ -51,7 +52,7 @@ onBeforeMount(fetchData);
 
       <div v-for="product in products" :key="product.id" class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
           <a href="#">
-              <img class="rounded-t-lg h-72 w-full" :src="product.thumbnail" alt="product image" />
+              <img class="rounded-t-lg h-72 w-full object-cover" :src="product.thumbnail" alt="product image" />
           </a>
           <div class="px-5 pb-5">
               <a href="#">
