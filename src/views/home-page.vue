@@ -1,12 +1,12 @@
 <script setup>
-import posts from '../components/posts.vue';
+import productListing from '../components/productListing.vue';
 
  
 
 </script>
 
 <template>
-    <posts />
+    <productListing />
    
 </template>
 

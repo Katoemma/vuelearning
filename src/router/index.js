@@ -35,9 +35,9 @@ const router = createRouter({
             component : () => import('../views/contact-page.vue')
         },
         {
-            path: '/singlePost/:id/:title',
-            name:'Post',
-            component : () => import('../views/singlePost.vue'),
+            path: '/singleProduct/:id',
+            name:'product',
+            component : () => import('../views/product.vue'),
 
         }
     ]
